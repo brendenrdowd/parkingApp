@@ -3,9 +3,16 @@
 </div>
 <div class="form">
   <h3>Where are you heading?</h3>
-  <form (submit)="onSubmit()">
-    <label for="area">Area</label>
-    <select name="area" [(ngModel)]="location.area">
+
+  <button (click)='find_data()' >Get data</button>
+
+  <div *ngFor= "let data of myData">
+    here is something {{data.unitdesc}}
+</div>
+
+  <!-- <form (submit)="onSubmit()">
+    <label for="area">Area</label> -->
+    <!-- <select name="area" [(ngModel)]="location.area">
       <option> - </option>
       <option value="12th Ave 2017 Annual Study">12th Ave</option>
       <option value="Ballard">Ballard</option>
@@ -35,8 +42,8 @@
       <option value="Uptown Triangle">Uptown Triangle</option>
       <option value="West Seattle">West Seattle</option>
       <option value="Westlake">Westlake</option>
-    </select>
-    <label for="street">Street:</label>
+    </select> -->
+    <!-- <label for="street">Street:</label>
     <select name="street" [(ngModel)]="location.street" *ngFor="let st of location.area"> //disable if no location.area
       <option value="{{st.unitdesc}}">{{st.unitdesc}}</option>
     </select>
@@ -61,8 +68,8 @@
       <option value="11:00 PM">11:00 PM</option>
     </select> ng 
     <input type="submit" value="go">
-  </form>
-</div>
+  </form> -->
+<!-- </div> -->
 <div class="answer">
-  <h3>There is an average of {{final.Parking_spaces - final.Total_vehicle_count}} open out of {{final.Parking_spaces}} at {{final.unitdesc}} in {{final.study_area}} around {{final.study_time}}.</h3>
+  <!-- <h3>There is an average of {{final.Parking_spaces - final.Total_vehicle_count}} open out of {{final.Parking_spaces}} at {{final.unitdesc}} in {{final.study_area}} around {{final.study_time}}.</h3> -->
 </div>
