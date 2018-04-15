@@ -10,12 +10,8 @@ export class InterlinkService {
 
   find_data(cb){
     console.log("hi from service")
-    // this._http.get('https://pokeapi.co/api/v2/pokemon/'+ Math.floor((Math.random() * 750)+ 1)).subscribe((res)=>{
-    //     cb(res.json())
-    //   })
     this._http.get('http://data.seattle.gov/resource/fdax-a9ur.json?study_year=2017&study_area=Ballard&study_time=12:00 PM').subscribe((res)=>{
         cb(res.json())
       })
   }
-
 }

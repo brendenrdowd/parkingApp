@@ -1,75 +1,85 @@
-<div class="head">
-  <H1>Seattle Parking Guide</H1>
+<div class="container">
+  <div class="row">
+    <div class="head">
+      <H1>Seattle Parking Guide</H1>
+    </div>
+  </div>
+  <div class="row">
+    <div><!-- test-->
+      <button (click)='find_data()'>Get data</button>
+      <div *ngFor="let data of myData">
+        here is something {{data.unitdesc}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!--end test-->
+    <div class="form">
+      <h3>Where are you heading?</h3>
+      <form (submit)="onSubmit()">
+        <label for="area">Area</label>
+        <select name="area">
+          <option> - </option>
+          <option value="12th Ave 2017 Annual Study">12th Ave</option>
+          <option value="Ballard">Ballard</option>
+          <option value="Ballard Locks Spring 2017">Ballard Locks - Spring</option>
+          <option value="Ballard Locks Summer">Ballard Locks - Summer</option>
+          <option value="Belltown">Belltown</option>
+          <option value="Capitol Hill">Capitol Hill</option>
+          <option value="Cherry Hill">Cherry Hill</option>
+          <option value="Chinatown ID 2017">Chinatown</option>
+          <option value="Commercial Core Financial">Commercial Core - Financial</option>
+          <option value="Commercial Core Retail">Commercial Core - Retail</option>
+          <option value="Commercial Core Waterfront">Commercial Core - Waterfront</option>
+          <option value="Denny Triangle North - 2017">Denny Triangle - North</option>
+          <option value="Denny Triangle South - 2017">Denny Triangle - South</option>
+          <option value="First Hill">First Hill</option>
+          <option value="Freemont">Freemont</option>
+          <option value="Green Lake">Green Lake</option>
+          <option value="Lake City">Lake City</option>
+          <option value="Pike-Pine">Pike-Pine</option>
+          <option value="Pioneer Square 2017">Pioneer Square</option>
+          <option value="Roosevelt">Roosevelt</option>
+          <option value="SODO">SODO</option>
+          <option value="South Lake Union">South Lake Union</option>
+          <option value="University District">University District</option>
+          <option value="Uptown">Uptown</option>
+          <option value="Uptown - Sunday">Uptown - Sunday</option>
+          <option value="Uptown Triangle">Uptown Triangle</option>
+          <option value="West Seattle">West Seattle</option>
+          <option value="Westlake">Westlake</option>
+        </select>
+        <!-- <label for="street">Street:</label>
+        <select name="street" [(ngModel)]="location.street" *ngFor="let st of location.area"> //disable if no location.area
+          <option value="{{st.unitdesc}}">{{st.unitdesc}}</option>
+        </select> -->
+        <label for="time">Time:</label>
+        <select name="time">
+          <option> - </option>
+          <option value="8:00 AM">8:00 AM</option>
+          <option value="9:00 AM">9:00 AM</option>
+          <option value="10:00 AM">10:00 AM</option>
+          <option value="11:00 AM">11:00 AM</option>
+          <option value="12:00 PM">12:00 PM</option>
+          <option value="1:00 PM">1:00 PM</option>
+          <option value="2:00 PM">2:00 PM</option>
+          <option value="3:00 PM">3:00 PM</option>
+          <option value="4:00 PM">4:00 PM</option>
+          <option value="5:00 PM">5:00 PM</option>
+          <option value="6:00 PM">6:00 PM</option>
+          <option value="7:00 PM">7:00 PM</option>
+          <option value="8:00 PM">8:00 PM</option>
+          <option value="9:00 PM">9:00 PM</option>
+          <option value="10:00 PM">10:00 PM</option>
+          <option value="11:00 PM">11:00 PM</option>
+        </select>
+        <input type="submit" class="btn" value="go">
+      </form>
+    </div>
+    <div class="answer">
+      <!-- <h3>There is an average of {{final.Parking_spaces - final.Total_vehicle_count}} open out of {{final.Parking_spaces}} at {{final.unitdesc}} in {{final.study_area}} around {{final.study_time}}.</h3> -->
+    </div>
+  </div>
+  <!--row-->
 </div>
-<div class="form">
-  <h3>Where are you heading?</h3>
-
-  <button (click)='find_data()' >Get data</button>
-
-  <div *ngFor= "let data of myData">
-    here is something {{data.unitdesc}}
-</div>
-
-  <!-- <form (submit)="onSubmit()">
-    <label for="area">Area</label> -->
-    <!-- <select name="area" [(ngModel)]="location.area">
-      <option> - </option>
-      <option value="12th Ave 2017 Annual Study">12th Ave</option>
-      <option value="Ballard">Ballard</option>
-      <option value="Ballard Locks Spring 2017">Ballard Locks - Spring</option>
-      <option value="Ballard Locks Summer">Ballard Locks - Summer</option>
-      <option value="Belltown">Belltown</option>
-      <option value="Capitol Hill">Capitol Hill</option>
-      <option value="Cherry Hill">Cherry Hill</option>
-      <option value="Chinatown ID 2017">Chinatown</option>
-      <option value="Commercial Core Financial">Commercial Core - Financial</option>
-      <option value="Commercial Core Retail">Commercial Core - Retail</option>
-      <option value="Commercial Core Waterfront">Commercial Core - Waterfront</option>
-      <option value="Denny Triangle North - 2017">Denny Triangle - North</option>
-      <option value="Denny Triangle South - 2017">Denny Triangle - South</option>
-      <option value="First Hill">First Hill</option>
-      <option value="Freemont">Freemont</option>
-      <option value="Green Lake">Green Lake</option>
-      <option value="Lake City">Lake City</option>
-      <option value="Pike-Pine">Pike-Pine</option>
-      <option value="Pioneer Square 2017">Pioneer Square</option>
-      <option value="Roosevelt">Roosevelt</option>
-      <option value="SODO">SODO</option>
-      <option value="South Lake Union">South Lake Union</option>
-      <option value="University District">University District</option>
-      <option value="Uptown">Uptown</option>
-      <option value="Uptown - Sunday">Uptown - Sunday</option>
-      <option value="Uptown Triangle">Uptown Triangle</option>
-      <option value="West Seattle">West Seattle</option>
-      <option value="Westlake">Westlake</option>
-    </select> -->
-    <!-- <label for="street">Street:</label>
-    <select name="street" [(ngModel)]="location.street" *ngFor="let st of location.area"> //disable if no location.area
-      <option value="{{st.unitdesc}}">{{st.unitdesc}}</option>
-    </select>
-    <label for="time">Time:</label>
-    <select name="time" [(ngModel)]="location.time">
-      <option > - </option>
-      <option value="8:00 AM">8:00 AM</option>
-      <option value="9:00 AM">9:00 AM</option>
-      <option value="10:00 AM">10:00 AM</option>
-      <option value="11:00 AM">11:00 AM</option>
-      <option value="12:00 PM">12:00 PM</option>
-      <option value="1:00 PM">1:00 PM</option>
-      <option value="2:00 PM">2:00 PM</option>
-      <option value="3:00 PM">3:00 PM</option>
-      <option value="4:00 PM">4:00 PM</option>
-      <option value="5:00 PM">5:00 PM</option>
-      <option value="6:00 PM">6:00 PM</option>
-      <option value="7:00 PM">7:00 PM</option>
-      <option value="8:00 PM">8:00 PM</option>
-      <option value="9:00 PM">9:00 PM</option>
-      <option value="10:00 PM">10:00 PM</option>
-      <option value="11:00 PM">11:00 PM</option>
-    </select> ng 
-    <input type="submit" value="go">
-  </form> -->
-<!-- </div> -->
-<div class="answer">
-  <!-- <h3>There is an average of {{final.Parking_spaces - final.Total_vehicle_count}} open out of {{final.Parking_spaces}} at {{final.unitdesc}} in {{final.study_area}} around {{final.study_time}}.</h3> -->
-</div>
+<!--container-->

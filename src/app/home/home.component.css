@@ -1,0 +1,13 @@
+.row{
+    text-align: center
+}
+.head.form{
+    display:block;
+}
+.head{
+    text-align: center;
+}
+.form{
+    border:solid 1px black; 
+    padding:5px;
+}
