@@ -42,6 +42,7 @@
     </select>
     <label for="time">Time:</label>
     <select name="time" [(ngModel)]="location.time">
+      <option > - </option>
       <option value="8:00 AM">8:00 AM</option>
       <option value="9:00 AM">9:00 AM</option>
       <option value="10:00 AM">10:00 AM</option>
@@ -63,5 +64,5 @@
   </form>
 </div>
 <div class="answer">
-
+  <h3>There is an average of {{final.Parking_spaces - final.Total_vehicle_count}} open out of {{final.Parking_spaces}} at {{final.unitdesc}} in {{final.study_area}} around {{final.study_time}}.</h3>
 </div>
