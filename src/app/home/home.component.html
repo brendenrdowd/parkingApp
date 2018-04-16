@@ -5,16 +5,6 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div>
-      <!-- test-->
-      <button (click)='find_data()'>Get data</button>
-      <div *ngFor="let data of myData">
-        here is something {{data.unitdesc}}
-      </div>
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <!--end test-->
     <div class="form">
       <h3>Where are you heading?</h3>
       <form (submit)="getArea()">
@@ -51,11 +41,11 @@
         </select>
         <input type="submit" class="btn btn-primary" value="go">
       </form>
-    </div>
-    <!--end form 1-->
-    <div class="form" *ngIf="areaStreets.length > 0">
-      <!--form2-->
-      <form (submit)="findParking()" >
+    </div><!--end form 1-->
+  </div>
+  <div class="row justify-content-center">
+    <div class="form" *ngIf="areaStreets.length > 0"><!--form2-->
+      <form (submit)="findParking()">
         <h3>Street</h3>
         <select name="street" class="form-control" id="street" [(ngModel)]="area.streets">
           <option *ngFor="let st of areaStreets" value="{{st.unitdesc}}">{{st.unitdesc}}</option>
