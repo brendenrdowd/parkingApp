@@ -57,8 +57,8 @@
       <!--form2-->
       <form (submit)="findParking()" >
         <h3>Street</h3>
-        <select name="street" [(ngModel)]="area.streets" *ngFor="let st of area.streets">
-          <option value="{{st.unitdesc}}">{{st.unitdesc}}</option>
+        <select name="street" class="form-control" id="street" [(ngModel)]="area.streets">
+          <option *ngFor="let st of areaStreets" value="{{st.unitdesc}}">{{st.unitdesc}}</option>
         </select>
         <h3>Time:</h3>
         <select name="time">
