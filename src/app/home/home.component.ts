@@ -9,20 +9,19 @@ import { InterlinkService } from './../interlink.service';
 export class HomeComponent implements OnInit {
   myData: Array<any>;
 
-  constructor(private _interlinkService:InterlinkService) { 
+  constructor(private _interlinkService: InterlinkService) {
     this.myData = []
   }
 
-  find_data(){
+  find_data() {
     console.log("hey gurl")
-    this._interlinkService.find_data((res)=>{
-        this.myData.push(res)
-        console.log(this.myData)
+    this._interlinkService.find_data((res) => {
+      this.myData.push(res)
+      console.log(this.myData)
     })
   }
-
   ngOnInit() {
-   
+
   }
 
 }
