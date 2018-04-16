@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
   }
 
   getArea() {
-    // console.log("hi im getting the area")
     this._interlinkService.getArea(this.userArea,(res) => {
       this.userArea = res;
       this.areaStreets = res;

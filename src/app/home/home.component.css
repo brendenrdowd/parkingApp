@@ -1,6 +1,13 @@
 *{
     font-family: 'Verdana',sans-serif;
 }
+.container{
+    background: linear-gradient(white, steelblue);
+    border-radius:3px;
+    box-shadow: 2px 2px gray;
+    max-width: 50%;
+    margin-top:15px;
+}
 .row{
     text-align: center
 }
@@ -11,11 +18,10 @@
     padding:10px;
 }
 .form{
-    background: linear-gradient(white, steelblue);
     border-radius: 2px;
     padding:15px;
     margin:10px;
-    box-shadow: 2px 2px gray;
+    
 }
 .btn{
     margin:5px;
