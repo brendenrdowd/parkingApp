@@ -17,9 +17,9 @@
     <!--end test-->
     <div class="form">
       <h3>Where are you heading?</h3>
-      <form (submit)="onSubmit()">
+      <form (submit)="getArea()">
         <label for="Area">Area</label>
-        <select class="form-control" id="Area">
+        <select class="form-control" id="Area" [(ngModel)]="userArea.area" name="area">
           <option> - </option>
           <option value="12th Ave 2017 Annual Study">12th Ave</option>
           <option value="Ballard">Ballard</option>
@@ -54,9 +54,10 @@
       </form>
     </div>
     <!--end form 1-->
+    
     <div *ng-hide>
       <!--form2-->
-      <form (submit)="onSubmit()" >
+      <form (submit)="findParking()" >
         <!-- <label for="street">Street:</label>
         <select name="street" [(ngModel)]="location.street" *ngFor="let st of location.area"> //disable if no location.area
           <option value="{{st.unitdesc}}">{{st.unitdesc}}</option>
