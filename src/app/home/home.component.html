@@ -10,7 +10,6 @@
       <form (submit)="getArea()">
         <select class="form-control" id="Area" [(ngModel)]="userArea.area" name="area">
           <option> - </option>
-          <option value="12th Ave 2017 Annual Study">12th Ave</option>
           <option value="Ballard">Ballard</option>
           <option value="Ballard Locks Spring 2017">Ballard Locks - Spring</option>
           <option value="Ballard Locks Summer">Ballard Locks - Summer</option>
@@ -30,6 +29,7 @@
           <option value="Pike-Pine">Pike-Pine</option>
           <option value="Pioneer Square 2017">Pioneer Square</option>
           <option value="Roosevelt">Roosevelt</option>
+          <option value="12th Ave 2017 Annual Study">Seattle University</option>
           <option value="SODO">SODO</option>
           <option value="South Lake Union">South Lake Union</option>
           <option value="University District">University District</option>
@@ -48,11 +48,11 @@
       <h2>{{areaStreets[0]['study_area']}}</h2>
       <form (submit)="findParking()">
         <h3>Street</h3>
-        <select name="street" class="form-control" id="street" [(ngModel)]="area.streets">
+        <select class="form-control" id="street" [(ngModel)]="area.street" name="street" >
           <option *ngFor="let st of areaStreets" value="{{st.unitdesc}}">{{st.side}} side of {{st.unitdesc}}</option>
         </select>
         <h3>Time:</h3>
-        <select name="time" class="form-control" id="street" [(ngModel)]="area.time">
+        <select class="form-control" id="street" [(ngModel)]="area.time" name="time">
           <option> - </option>
           <option value="8:00 AM">8:00 AM</option>
           <option value="9:00 AM">9:00 AM</option>
@@ -76,7 +76,7 @@
       </form>
     </div>
     <div class="answer">
-      <!-- <h3>There is an average of {{final.Parking_spaces - final.Total_vehicle_count}} open out of {{final.Parking_spaces}} at {{final.unitdesc}} in {{final.study_area}} around {{final.study_time}}.</h3> -->
+      <h3>There is an average of {{answer.open}} spots open out of {{answer.total}} at {{area.street}} around {{area.time}}.</h3>
     </div>
   </div>
   <!--row-->

@@ -10,6 +10,8 @@ export class HomeComponent implements OnInit {
   userArea: object 
   area:object
   areaStreets:Array<Object>
+  parkingSpots:Array<any>
+  answer: Object
 
   constructor(private _interlinkService: InterlinkService) {
     this.areaStreets = []
@@ -20,6 +22,14 @@ export class HomeComponent implements OnInit {
       street:"",
       time:""
     }
+    this.parkingSpots = []
+    this.answer = {
+      // street:"",
+      // time:"",
+      total: 0,
+      taken: 0,
+      open: 0
+    }
   }
 
   getArea() {
@@ -29,6 +39,20 @@ export class HomeComponent implements OnInit {
       console.log("here is your area object:", this.userArea)
     })
   }
+
+  findParking() {
+    console.log("component", this.area)
+    this._interlinkService.findParking(this.area, (res) => {
+      this.parkingSpots = res;
+      this.answer['taken'] = Number(this.parkingSpots[0]['total_vehicle_count']) + Number(this.parkingSpots[1]['total_vehicle_count']);
+      this.answer['total'] = Number(this.parkingSpots[0]['parking_spaces']) + Number(this.parkingSpots[1]['parking_spaces']);
+      this.answer['open'] = this.answer['total'] - this.answer['taken'];
+      // console.log('total', Number(this.parkingSpots[0]['total_vehicle_count']))
+      // console.log('taken', this.parkingSpots[0]['parking_spaces'])
+    })
+  }
+
+  
 
   ngOnInit() {
 
