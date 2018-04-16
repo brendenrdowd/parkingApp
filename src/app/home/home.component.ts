@@ -37,7 +37,6 @@ export class HomeComponent implements OnInit {
     }
   }
   isAnswer(){
-    console.log("checking")
     if(this.finalString.length > 0){
       return true;
     }else{
