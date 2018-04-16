@@ -18,7 +18,6 @@
     <div class="form">
       <h3>Where are you heading?</h3>
       <form (submit)="getArea()">
-        <label for="Area">Area</label>
         <select class="form-control" id="Area" [(ngModel)]="userArea.area" name="area">
           <option> - </option>
           <option value="12th Ave 2017 Annual Study">12th Ave</option>
@@ -54,15 +53,14 @@
       </form>
     </div>
     <!--end form 1-->
-    
-    <div *ng-hide>
+    <div class="form" *ngIf="areaStreets.length > 0">
       <!--form2-->
       <form (submit)="findParking()" >
-        <!-- <label for="street">Street:</label>
-        <select name="street" [(ngModel)]="location.street" *ngFor="let st of location.area"> //disable if no location.area
+        <h3>Street</h3>
+        <select name="street" [(ngModel)]="area.streets" *ngFor="let st of area.streets">
           <option value="{{st.unitdesc}}">{{st.unitdesc}}</option>
-        </select> -->
-        <label for="time">Time:</label>
+        </select>
+        <h3>Time:</h3>
         <select name="time">
           <option> - </option>
           <option value="8:00 AM">8:00 AM</option>
@@ -82,7 +80,8 @@
           <option value="10:00 PM">10:00 PM</option>
           <option value="11:00 PM">11:00 PM</option>
         </select>
-        <input type="submit" class="btn" value="go">
+        <input type="submit" class="btn btn-primary" value="go">
+        <a class="btn btn-primary" href="/">Reset</a>
       </form>
     </div>
     <div class="answer">

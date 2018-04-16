@@ -7,28 +7,26 @@ import { InterlinkService } from './../interlink.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  myData: Array<any>;
   userArea: object 
+  area:object
+  areaStreets:Array<Object>
 
   constructor(private _interlinkService: InterlinkService) {
-    this.myData = []
+    this.areaStreets = []
     this.userArea = {
       area:""
     }
-  }
-
-  find_data() {
-    // console.log("hey gurl")
-    this._interlinkService.find_data((res) => {
-      this.myData.push(res)
-      // console.log(this.myData)
-    })
+    this.area = {
+      street:"",
+      time:""
+    }
   }
 
   getArea() {
     // console.log("hi im getting the area")
     this._interlinkService.getArea(this.userArea,(res) => {
-      this.userArea = res
+      this.userArea = res;
+      this.areaStreets = res;
       console.log("here is your area object:", this.userArea)
     })
   }
