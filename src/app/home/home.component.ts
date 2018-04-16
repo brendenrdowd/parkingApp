@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   stealth: Boolean
 
   constructor(private _interlinkService: InterlinkService) {
+    this.stealth = true;
     this.finalString = ""
     this.errMsg = ""
     this.areaStreets = []
@@ -45,9 +46,9 @@ export class HomeComponent implements OnInit {
   }
   getArea() {
     this._interlinkService.getArea(this.userArea,(res) => {
-      this.stealth = true;
       this.userArea = res;
       this.areaStreets = res;
+      this.stealth = false;
     })
   }
 
