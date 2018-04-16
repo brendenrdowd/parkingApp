@@ -4,7 +4,7 @@
 .container{
     background: linear-gradient(white, steelblue);
     border-radius:3px;
-    box-shadow: 2px 2px gray;
+    /* box-shadow: 2px 2px gray; */
     max-width: 50%;
     margin-top:15px;
 }
@@ -25,4 +25,15 @@
 }
 .btn{
     margin:5px;
+}
+#areaTitle{
+    margin-bottom:15px;
+}
+.answer{
+    color:white;
+    margin:5px;
+    padding:2px;
+}
+.error{
+    color:red;
 }
