@@ -20,11 +20,20 @@
 .form{
     border-radius: 2px;
     padding:15px;
-    margin:10px;
     
 }
 .btn{
     margin:5px;
+}
+.btn-primary{
+    margin:5px;
+    background: linear-gradient(#007aff, #0661c2a2);
+    border:none;
+}
+.btn-info{
+    margin:5px;
+    background: linear-gradient(#18a2b9, #0f869bbd);
+    border:none;
 }
 #areaTitle{
     margin-bottom:15px;

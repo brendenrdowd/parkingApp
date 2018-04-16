@@ -17,13 +17,8 @@ export class InterlinkService {
   }
 
   findParking(area, cb){
-    this._http.get('http://data.seattle.gov/resource/fdax-a9ur.json?Unitdesc=' + area.street + '&study_year=2017&study_time=' + area.time).subscribe((res)=>{
-      console.log("parking spot info:", res.json())  
+    this._http.get('http://data.seattle.gov/resource/fdax-a9ur.json?Unitdesc=' + area.street + '&study_year=2017&study_time=' + area.time).subscribe((res)=>{ 
       cb(res.json())
       })
   }
-
-  // firstCall(v,cb){
-  //   this._http.get('http://data.seattle.gov/resource/fdax-a9ur.json?study_year=2017&study_area=${{v}}&study_time=12:00 PM')
-  // }
 }

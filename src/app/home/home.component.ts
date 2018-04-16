@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   answer: Object
   finalString:String
   errMsg: String
+  stealth: Boolean
 
   constructor(private _interlinkService: InterlinkService) {
     this.finalString = ""
@@ -35,9 +36,17 @@ export class HomeComponent implements OnInit {
       open: 0
     }
   }
-
+  isAnswer(){
+    console.log("checking")
+    if(this.finalString.length > 0){
+      return true;
+    }else{
+      return false;
+    }
+  }
   getArea() {
     this._interlinkService.getArea(this.userArea,(res) => {
+      this.stealth = true;
       this.userArea = res;
       this.areaStreets = res;
     })
@@ -45,10 +54,8 @@ export class HomeComponent implements OnInit {
 
   findParking() {
     this._interlinkService.findParking(this.area, (res) => {
-      console.log("back in comp,", res)
       this.parkingSpots = res;
       if(res.length == 0){
-        console.log('hitting error');
         return this.errMsg= "No data available, please chose another time";
       }
       if(this.parkingSpots.length > 1){
@@ -63,7 +70,8 @@ export class HomeComponent implements OnInit {
         this.answer['open'] = 0;
       }
       this.errMsg = ""
-      this.finalString = `There is an average of ${this.answer['open']} spot(s) open out of ${this.answer['total']} at ${this.area['street'].toLowerCase()} around ${this.area['time']}`;
+      this.finalString = `There are an average of ${this.answer['open']} spot(s) open out of ${this.answer['total']} at ${this.area['street'].toLowerCase()} around ${this.area['time']}`;
+      this.isAnswer();
     })
   }
   ngOnInit() {

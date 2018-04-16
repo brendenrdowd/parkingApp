@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="head">
-      <H1>Seattle Parking Guide</H1>
+      <H1 class="display-4">Seattle Parking Guide</H1>
       <hr>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center" *ngIf="!isAnswer()">
     <div class="form">
-      <h3>Where are you heading?</h3>
+      <h3 class="display-5">Where are you heading?</h3>
       <form (submit)="getArea()">
         <select class="form-control" id="Area" [(ngModel)]="userArea.area" name="area">
           <option> - </option>
@@ -44,17 +44,17 @@
       </form>
     </div><!--end form 1-->
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center" *ngIf="!isAnswer()">
     <div class="form" *ngIf="areaStreets.length > 0"><!--form2-->
       <h2 id="areaTitle">{{areaStreets[0]['study_area']}}</h2>
       <hr>
       <form (submit)="findParking()">
-        <h4 *ngIf="errMsg.length > 0" class="error">{{errMsg}}</h4>
-        <h3>Street</h3>
+        <h4 *ngIf="errMsg.length > 0" class="error display-5">{{errMsg}}</h4>
+        <h3 class="display-5">Street</h3>
         <select class="form-control" id="street" [(ngModel)]="area.street" name="street" >
           <option *ngFor="let st of areaStreets" value="{{st.unitdesc}}">{{st.side}} side of {{st.unitdesc}}</option>
         </select>
-        <h3>Time:</h3>
+        <h3 class="display-5">Time:</h3>
         <select class="form-control" id="street" [(ngModel)]="area.time" name="time">
           <option> - </option>
           <option value="8:00 AM">8:00 AM</option>
@@ -77,10 +77,14 @@
         <a class="btn btn-info btn-block" href="/">Reset</a>
       </form>
     </div>
-    <div class="answer" *ngIf="finalString.length > 0">
-      <h2>Availability</h2>
-      <hr>
-      <h3>{{finalString}}</h3>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col s4">
+      <div class="answer" *ngIf="finalString.length > 0">
+        <h2 class="display-5">Availability</h2>
+        <hr>
+        <h3>{{finalString}}</h3>
+      </div>
     </div>
   </div>
   <!--row-->
